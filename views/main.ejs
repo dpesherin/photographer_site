@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Main Page</title>
+</head>
+<body>
+    <div class="global-wrapper">
+        <div class="header flex row jc-center">
+            <div class="flex wrapper jc-between">
+                <div class="menu flex row jc-start">
+                    <a href="#portfolio" class="link">
+                        Портфолио
+                    </a>
+                    <a href="#author" class="link">
+                        Об авторе
+                    </a>
+                </div>
+                <div class="logo-place">
+                    <h1 class="logo">Aleksandra</h1>
+                </div>
+                <div class="menu flex row jc-end">
+                    <a href="#info" class="link">
+                        Инфо
+                    </a>
+                    <a href="#contacts" class="link">
+                        Контакты
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="banner">
+                <img src="<%- cont.data.banner_photo.path %>" alt="<%- cont.data.banner_photo.alt %>">
+                <div class="text-block">
+                    <h1 class="banner-header">
+                        Aleksandra Kenecius
+                    </h1>
+                    <p class="banner-text">
+                        Фотограф в городе Санкт Петербург
+                    </p>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="block" id="author">
+                    <h2 class="title">
+                        Об Авторе
+                    </h2>
+                    <div class="author-place">
+                        <p class="text">
+                            <%- cont.data.bio %>
+                        </p>
+                        <div class="author-photo-place">
+                            <img src="<%- cont.data.bio_photo.path %>" alt="<%- cont.data.bio_photo.alt %>">
+                        </div>
+                    </div>
+                </div>
+                <div class="block" id="portfolio">
+                    <h2 class="title">
+                        Портфолио
+                    </h2>
+                    <div class="gallery" id="gallery">
+                        <div class="cards-block">
+                            <div class="gallery-card">
+                                <img src="/files/photo.jpg" alt="gallery-card">
+                            </div>
+                            <div class="gallery-card">
+                                <img src="/files/photo.jpg" alt="gallery-card">
+                            </div>
+                            <div class="gallery-card">
+                                <img src="/files/photo.jpg" alt="gallery-card">
+                            </div>
+                            <div class="gallery-card">
+                                <img src="/files/photo.jpg" alt="gallery-card">
+                            </div>
+                            <div class="gallery-card">
+                                <img src="/files/photo.jpg" alt="gallery-card">
+                            </div>
+                            <div class="gallery-card">
+                                <img src="/files/photo.jpg" alt="gallery-card">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="redirect">Больше работ</button>
+                    </div>
+                </div>
+                <div class="block" id="info">
+                    <h2 class="title">
+                        Инфо
+                    </h2>
+                    <div class="info-cards">
+                        <% info.forEach(card => { %>
+                            <div class="card">
+                            <h3 class="card-title">
+                                <%- card.TITLE %>
+                            </h3>
+                            <p class="card-text">
+                                <%- card.TEXT %>    
+                            </p>
+                        </div>
+                        <% }); %>
+                    </div>
+                </div>
+                <div class="block" id="contacts">
+                    <h2 class="title">
+                        Контакты
+                    </h2>
+                    <div class="contact-place">
+                        <a href="call:<%- cont.data.phone %>" class="contact-card">
+                            <div class="contact-header-place">
+                                <img src="/images/phone.svg" alt="" class="ico">
+                                <div class="contact-header">
+                                    Телефон
+                                </div>
+                            </div>
+                            <div class="contact-card-content">
+                                <%- cont.data.phone %>
+                            </div>
+                        </a>
+                        <a href="https://t.me/<%- cont.data.telegram %>" class="contact-card">
+                            <div class="contact-header-place">
+                                <img src="/images/telegram.svg" alt="" class="ico">
+                                <div class="contact-header">
+                                    Telegram
+                                </div>
+                            </div>
+                            <div class="contact-card-content">
+                                <%- cont.data.telegram %>
+                            </div>
+                        </a>
+                        <a href="https://t.me/<%- cont.data.personal_blog %>" class="contact-card">
+                            <div class="contact-header-place">
+                                <img src="/images/telegram.svg" alt="" class="ico">
+                                <div class="contact-header">
+                                    Персональный блог
+                                </div>
+                            </div>
+                            <div class="contact-card-content">
+                                <%- cont.data.personal_blog %>
+                            </div>
+                        </a>
+                        <a href="mailto:<%- cont.data.mail %>" class="contact-card">
+                            <div class="contact-header-place">
+                                <img src="/images/mail.svg" alt="" class="ico">
+                                <div class="contact-header">
+                                    Почта
+                                </div>
+                            </div>
+                            <div class="contact-card-content">
+                                <%- cont.data.mail %>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer flex row jc-center">
+            <div class="flex wrapper jc-between">
+                <span class="footer-item">Aleksandra Kenecius</span>
+                <span class="footer-item">2025</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/main.js"></script>
+</html>
