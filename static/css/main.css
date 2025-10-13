@@ -394,6 +394,9 @@ p.text{
     .contact-card{
         width: 100%;
         margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
     .card-title{
         font-size: 18px;
