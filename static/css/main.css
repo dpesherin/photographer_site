@@ -389,6 +389,7 @@ p.text{
     .contact-place{
         flex-wrap: wrap;
         margin-top: 20px;
+        justify-content: flex-start;
     }
     .contact-card{
         width: 100%;
