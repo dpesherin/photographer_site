@@ -7,40 +7,45 @@ export class SqliteRepository
         this._db = new Database("databese.db")
     }
 
-    findOne(sqlStatement){
+    findOne(sqlStatement, params = []){
         return new Promise((resolve, reject)=>{
-            this._db.serialize(()=>{
-                this._db.each(sqlStatement, (err, res)=>{
-                    if(err){
-                        reject(err)
-                    }
-                    resolve(res)
-                })
+            this._db.get(sqlStatement, params, (err, res)=>{
+                if(err){
+                    reject(err)
+                }
+                resolve(res)
             })
         })
     }
 
     findMany(sqlStatement){
         return new Promise((resolve, reject)=>{
-            this._db.serialize(()=>{
-                this._db.all(sqlStatement, (err, res)=>{
-                    if(err){
-                        reject(err)
-                    }
-                    resolve(res)
-                })
+            this._db.all(sqlStatement, (err, res)=>{
+                if(err){
+                    reject(err)
+                }
+                resolve(res)
             })
         })
     }
 
-    insert(sqlStatement){
-        return new Promise((res, rej)=>{
-            
-        })
+    insert(sqlStatement, params = []) {
+        return new Promise((resolve, reject) => {
+            this._db.run(sqlStatement, params, function(err) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve({
+                        lastID: this.lastID,
+                        changes: this.changes
+                    });
+                }
+            });
+        });
     }
 
     del(sqlStatement){
-        return new Promise((res, rej)=>{
+        return new Promise((resolve, reject)=>{
             
         })
     }

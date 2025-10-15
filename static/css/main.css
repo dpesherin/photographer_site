@@ -286,6 +286,76 @@ p.text{
     position: relative;
     width: 100%;
 }
+#login-wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/images/bg.png");
+    background-size: cover;
+}
+#auth-form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 12px;
+}
+h3.form-header{
+    font-size: 32px;
+    font-weight: 200;
+}
+input.modern{
+    width: 400px;
+    height: 48px;
+    font-size: 18px;
+    font-weight: 200;
+    padding-left: 16px;
+    margin-top: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 9px;
+}
+label{
+    font-size: 14px;
+    color: #767676;
+    font-weight: 600;
+    padding-left: 15px;
+}
+button.--air{
+    background-color: #1accff;
+    color: #fff;
+    font-size: 16px;
+    text-transform: capitalize;
+    border-radius: 9px;
+    width: 200px;
+    padding: 10px 12px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.notification{
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 24px;
+}
+.notification>.notify-header{
+    font-size: 16px;
+    font-weight: 400;
+}
+.notification>.notify-text{
+    font-size: 14px;
+    font-weight: 200;
+}
 
 @media screen and (max-width: 1200px) and (min-width: 993px) {
     .wrapper{
