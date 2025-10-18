@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin.css">
     <title>Административный раздел</title>
 </head>
 <body>
-    <h1>Тут будет админка, но пока ее нет XD</h1>
+    <div class="wrapper">
+        <div id="sidebar">
+            <h3 class="sidebar-header">
+                Admin Panel
+            </h3>
+            <div class="links">
+                <div class="row">
+                    <div class="ico-place">
+                        <img src="/images/settings.svg" alt="" class="ico">
+                    </div>
+                    <a href="#" class="link">Баннер</a>
+                </div>
+                <div class="row">
+                    <div class="ico-place">
+                        <img src="/images/info.svg" alt="" class="ico">
+                    </div>
+                    <a href="#" class="link">Об авторе</a>
+                </div>
+                <div class="row">
+                    <div class="ico-place">
+                        <img src="/images/list.svg" alt="" class="ico">
+                    </div>
+                    <a href="#" class="link">Инфо</a>
+                </div>
+                <div class="row">
+                    <div class="ico-place">
+                        <img src="/images/contacts.svg" alt="" class="ico">
+                    </div>
+                    <a href="#" class="link">Контакты</a>
+                </div>
+                <div class="row">
+                    <div class="ico-place">
+                        <img src="/images/picture.svg" alt="" class="ico">
+                    </div>
+                    <a href="#" class="link">Управление портфолио</a>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="block" id="banner">
+                <h2 class="sub-header">Изображение на баннере:</h2>
+                <div class="row">
+                    <div class="banner-place">
+                        <img src="<%- cont.data.banner_photo.path %>" alt="<%- cont.data.banner_photo.alt %>">
+                    </div>
+                    <div class="upload-block">
+                        <button class="--air">Перетащите файлы для замены</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </body>
+<script src="/js/admin.js"></script>
 </html>

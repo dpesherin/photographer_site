@@ -6,6 +6,7 @@ import {MainPageController} from './controllers/MainPageController.js'
 import { LoginController } from './controllers/LoginController.js'
 import {AuthRouter} from "./routes/AuthRouter.js"
 import cookieParser from "cookie-parser";
+import { AuthMiddleware } from './middleware/AuthMiddleware.js'
 
 dotenv.config()
 
@@ -37,13 +38,11 @@ app.get("/login", async (req, res)=>{
     return res.render("login", {})
 })
 
-app.get("/admin", async(req, res)=>{
-    let lgController = new LoginController()
-    let decoded = await lgController.checkJwt(req.cookies.access_token)
-    if(!decoded){
-        return res.status(301).redirect("/login")
-    }
-    return res.render("admin", {})
+app.get("/admin", await AuthMiddleware, async(req, res)=>{
+    const mpController = new MainPageController()
+    let content = await mpController.getPageContent()
+    let infoCards = await mpController.getInfoCards()
+    return res.render("admin", {cont: content, info: infoCards})
 })
 
 
